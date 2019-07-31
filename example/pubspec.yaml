@@ -1,6 +1,9 @@
 name: arcgis_flutter_example
 description: Demonstrates how to use the arcgis_flutter plugin.
 
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
 dependencies:
   flutter:
     sdk: flutter

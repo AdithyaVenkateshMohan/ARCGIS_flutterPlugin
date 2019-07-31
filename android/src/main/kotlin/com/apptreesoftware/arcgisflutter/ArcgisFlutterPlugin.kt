@@ -42,6 +42,21 @@ class ArcgisFlutterPlugin(val activity: Activity) : MethodCallHandler {
   }
 
 
+  // val mapOptions = call.argument<Map<String, Any>>("mapOptions")
+  //           val cameraDict = mapOptions!!["cameraPosition"] as Map<String, Any>
+  //           initialCameraPosition = getCameraPosition(cameraDict)
+  //           toolbarActions = getToolbarActions(call.argument<List<Map<String, Any>>>("actions"))
+  //           showUserLocation = mapOptions!!["showUserLocation"] as Boolean
+  //           showMyLocationButton = mapOptions!!["showMyLocationButton"] as Boolean
+  //           showCompassButton = mapOptions!!["showCompassButton"] as Boolean
+  //           hideToolbar = mapOptions!!["hideToolbar"] as Boolean
+  //           mapTitle = mapOptions!!["title"] as String
+
+  //           if (mapOptions!!["mapViewType"] != null) {
+  //               val mappedMapType: Int? = mapTypeMapping.get(mapOptions!!["mapViewType"]);
+  //               if (mappedMapType != null) mapViewType = mappedMapType;
+  //           }
+
   override fun onMethodCall(call: MethodCall, result: Result): Unit {
     when {
       call.method == "setApiKey" -> {
@@ -55,7 +70,22 @@ class ArcgisFlutterPlugin(val activity: Activity) : MethodCallHandler {
       call.method == "show" -> {
         val mapOptions = call.argument<Map<String, Any>>("mapOptions")
         toolbarActions = getToolbarActions(call.argument<List<Map<String, Any>>>("actions"))
-        showUserLocation = mapOptions["showUserLocation"] as Boolean
+        showUserLocation = mapOptions!!["showUserLocation"] as Boolean
+        
+        // val mapOptions = call.argument<Map<String, Any>>("mapOptions")
+        //   val cameraDict = mapOptions!!["cameraPosition"] as Map<String, Any>
+        //   initialCameraPosition = getCameraPosition(cameraDict)
+        //   toolbarActions = getToolbarActions(call.argument<List<Map<String, Any>>>("actions"))
+        //   showUserLocation = mapOptions!!["showUserLocation"] as Boolean
+        //   showMyLocationButton = mapOptions!!["showMyLocationButton"] as Boolean
+        //   showCompassButton = mapOptions!!["showCompassButton"] as Boolean
+        //   hideToolbar = mapOptions!!["hideToolbar"] as Boolean
+        //   mapTitle = mapOptions!!["title"] as String
+
+        //   if (mapOptions!!["mapViewType"] != null) {
+        //       val mappedMapType: Int? = mapTypeMapping.get(mapOptions!!["mapViewType"]);
+        //       if (mappedMapType != null) mapViewType = mappedMapType;
+        //   }
 
         val intent = Intent(activity, MapActivity::class.java)
         activity.startActivity(intent)

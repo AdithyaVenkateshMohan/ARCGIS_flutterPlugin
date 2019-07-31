@@ -107,6 +107,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+
 class CompositeSubscription {
   Set<StreamSubscription<dynamic>> _subscriptions = new Set();
 
